@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - 5000:5000
+    environment:
+      - PORT=5000
+      - WORKERS=1
+      - TIMEOUT=30
+      - MAX_REQUESTS=1000
+      - WEIGHTS=/app/weights/
+    volumes:
+      - ./weights:/app/weights

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: htr
+  name: htr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: htr
+  template:
+    metadata:
+      labels:
+        app: htr
+    spec:
+      containers:
+      - name: htr
+        image: htr:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+          - mountPath: /app/weights
+            name: weights-volume
+      volumes:
+        - name: weights-volume
+          hostPath:
+            path: /C/Users/FlorijnWim/PycharmProjects/htr-ctctcnn/weights
+            type: Directory
