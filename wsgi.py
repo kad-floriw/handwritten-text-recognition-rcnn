@@ -59,7 +59,7 @@ def before_first_request():
     global model, graph
 
     graph = tf.Graph()
-    weight_location = os.environ.get('WEIGHTS', os.path.join('weights'))
+    weight_location = 'weights'
     with graph.as_default():
         model = Model(vocabulary, graph, DecoderType.BestPath, model_dir=weight_location)
 

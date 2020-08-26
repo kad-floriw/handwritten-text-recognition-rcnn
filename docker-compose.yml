@@ -11,6 +11,3 @@ services:
       - WORKERS=1
       - TIMEOUT=30
       - MAX_REQUESTS=1000
-      - WEIGHTS=/app/weights/
-    volumes:
-      - ./weights:/app/weights
